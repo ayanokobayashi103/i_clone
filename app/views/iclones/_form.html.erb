@@ -1,0 +1,17 @@
+<%= form_with(model: @iclone, local: true, url: choose_new_or_edit ) do |form| %>
+<% if @iclone.errors.any? %>
+  <div class="alert alert-warning">
+    <ul>
+      <% @iclone.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+  <div class="content">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+  <%= form.submit %>
+<% end %>
+<%= link_to '一覧へ', iclones_path %>

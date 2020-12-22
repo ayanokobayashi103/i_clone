@@ -1,0 +1,7 @@
+<h3>以下の内容で、投稿する。</h3>
+<%= form_with(model: @iclone, local: true) do |f| %>
+  <%= f.hidden_field :content %>
+  <p>本文:<%= @iclone.content %></p>
+  <%= f.submit  "登録する" %>
+   <%= f.submit "戻る", name: 'back' %>
+<% end %>
