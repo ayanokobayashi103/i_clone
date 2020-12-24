@@ -22,6 +22,9 @@ class IclonesController < ApplicationController
     @favorite = current_user.favorites.find_by(iclone_id: @iclone.id)
   end
   def edit
+    unless @iclone.user_id == current_user.id
+      redirect_to iclones_path, notice:"編集できません"
+    end
   end
   def update
     if @iclone.update(iclone_params)
@@ -31,8 +34,12 @@ class IclonesController < ApplicationController
     end
   end
   def destroy
-    @iclone.destroy
-    redirect_to iclones_path, notice:"削除しました！"
+    unless @iclone.user_id == current_user.id
+      redirect_to iclones_path, notice:"削除できません"
+    else
+      redirect_to iclones_path, notice:"削除しました！"
+      @iclone.destroy
+    end
   end
   def confirm
     @iclone = current_user.iclones.build(iclone_params)
