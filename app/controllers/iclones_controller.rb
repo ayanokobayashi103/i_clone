@@ -1,4 +1,5 @@
 class IclonesController < ApplicationController
+  before_action :authenticate_user,only: [:edit, :show, :update, :destroy, :new]
   before_action :set_iclone, only: [:edit, :show, :update, :destroy]
   def index
     @iclones =  Iclone.all
@@ -7,7 +8,7 @@ class IclonesController < ApplicationController
     @iclone = Iclone.new
   end
   def create
-  @iclone = current_user.iclones.build(iclone_params)
+    @iclone = current_user.iclones.build(iclone_params)
     if params[:back]
       render :new
     else
@@ -52,5 +53,10 @@ class IclonesController < ApplicationController
   end
   def set_iclone
     @iclone = Iclone.find(params[:id])
+  end
+  def authenticate_user
+    if @current_user == nil
+      redirect_to iclones_path, notice:"ログインしてください！"
+    end
   end
 end

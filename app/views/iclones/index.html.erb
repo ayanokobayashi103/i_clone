@@ -7,10 +7,10 @@
     <%= iclone.content %>
     <%= iclone.user.name %>
     <%= link_to '詳細を確認する', iclone_path(iclone.id) %>
-    <% if iclone.user.id == current_user.id %>
+    <% #if iclone.user.id == current_user.id %>
     <%= link_to "ブログを編集する", edit_iclone_path(iclone.id) %>
     <%= link_to 'ブログを削除する', iclone_path(iclone.id), method: :delete, data: { confirm: '本当に削除していいですか？' }  %>
-    <% end %>
+    <% #end %>
   </div>
   <% end %>
 
