@@ -12,6 +12,15 @@
     <%= form.label :content %>
     <%= form.text_field :content %>
   </div>
+  <div class="field">
+   <%= form.label :image %>
+   <!-- 確認画面から新規作成画面に戻った時に、 -->
+   <!-- アップロードした画像を表示させるための記述 -->
+   <%= image_tag(@iclone.image.url) if @iclone.image && @iclone.image.url %>
+   <%= form.file_field :image %>
+   <%= form.hidden_field :image_cache %>
+ </div>
+
   <%= form.submit %>
 <% end %>
 <%= link_to '一覧へ', iclones_path %>

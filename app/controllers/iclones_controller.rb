@@ -49,13 +49,13 @@ class IclonesController < ApplicationController
 
   private
   def iclone_params
-    params.require(:iclone).permit(:image, :content)
+    params.require(:iclone).permit(:image, :content, :image_cache)
   end
   def set_iclone
     @iclone = Iclone.find(params[:id])
   end
   def authenticate_user
-    if @current_user == nil
+    unless logged_in?
       redirect_to iclones_path, notice:"ログインしてください！"
     end
   end

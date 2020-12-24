@@ -1,4 +1,9 @@
 <p>内容: <%= @iclone.content %></p>
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @iclone.image.url %>
+</p>
+
 <%= link_to '一覧へ', iclones_path %>
 <% unless @iclone.user_id == current_user.id %>
   <% if @favorite.present? %>

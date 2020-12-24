@@ -13,6 +13,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'uglifier', '>= 1.3.0'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'carrierwave'
+gem 'mini_magick'
 # Backend
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
