@@ -7,18 +7,19 @@ class IclonesController < ApplicationController
     @iclone = Iclone.new
   end
   def create
-    @iclone = Iclone.new(iclone_params)
+  @iclone = current_user.iclones.build(iclone_params)
     if params[:back]
       render :new
     else
-    if @iclone.save
-      redirect_to iclones_path, notice:"作成しました！"
-    else
-      render :new
+      if @iclone.save
+        redirect_to iclones_path, notice:"作成しました！"
+      else
+        render :new
+      end
     end
   end
-end
   def show
+    @favorite = current_user.favorites.find_by(iclone_id: @iclone.id)
   end
   def edit
   end
@@ -34,8 +35,8 @@ end
     redirect_to iclones_path, notice:"削除しました！"
   end
   def confirm
-    @iclone = Iclone.new(iclone_params)
-      render :new if @iclone.invalid?
+    @iclone = current_user.iclones.build(iclone_params)
+    render :new if @iclone.invalid?
   end
 
   private
