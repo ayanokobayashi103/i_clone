@@ -2,7 +2,7 @@ class IclonesController < ApplicationController
   before_action :authenticate_user,only: [:edit, :show, :update, :destroy, :new]
   before_action :set_iclone, only: [:edit, :show, :update, :destroy]
   def index
-    @iclones =  Iclone.all
+    @iclones = Iclone.all
   end
   def new
     @iclone = Iclone.new
