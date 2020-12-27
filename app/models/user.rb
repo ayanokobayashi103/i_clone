@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :iclones
   has_many :favorites, dependent: :destroy
   mount_uploader :image, ImageUploader
+  has_many :favorite_iclones, through: :favorites, source: :iclone
 end

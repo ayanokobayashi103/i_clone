@@ -8,6 +8,7 @@ class FavoritesController < ApplicationController
     redirect_to iclones_url, notice: "#{favorite.iclone.user.name}さんのブログをお気に入り解除しました"
   end
   def show
-    
+    @favorite_iclones = current_user.favorite_iclones
+    @user = current_user
   end
 end

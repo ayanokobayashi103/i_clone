@@ -1,0 +1,8 @@
+<h1><%= @user.name %>お気に入りページ</h1>
+<% @favorite_iclones.each do |iclone| %>
+  <hr>
+  <p><span>ファボツイート内容: </span><%= iclone.content %></p>
+    <p><span>ファボツイート画像: </span><%=image_tag iclone.image.url %></p>
+<% end %>
+<%= link_to '一覧へ', iclones_path %>
+<%= link_to '戻る', user_path %>

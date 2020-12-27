@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :show, :update]
+  def index
+    @users = User.all
+  end
   def new
     @user = User.new
   end
@@ -12,6 +15,7 @@ class UsersController < ApplicationController
     end
   end
   def show
+    @favorite_iclones = @user.favorite_iclones
   end
   def edit
   end
