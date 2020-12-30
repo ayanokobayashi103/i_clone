@@ -13,6 +13,7 @@ class IclonesController < ApplicationController
       render :new
     else
       if @iclone.save
+        ContactMailer.contact_mail(@iclone).deliver
         redirect_to iclones_path, notice:"作成しました！"
       else
         render :new

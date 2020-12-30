@@ -4,6 +4,5 @@
   <%= image_tag @user.image.url %></p>
   <% end %>
 <p>メールアドレス: <%= @user.email %></p>
-<p><%= link_to 'Edit', edit_user_path(@user) %></p>
-<p><%= link_to '一覧へ', iclones_path %></p>
+<p><%= link_to '編集', edit_user_path(@user) %></p>
 <p><%= link_to 'お気に入りへ', favorite_path %></p>
