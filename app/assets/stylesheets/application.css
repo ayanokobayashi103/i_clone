@@ -15,13 +15,14 @@
  *= require_self
  */
  h1,h2,h3{
- font-family: "CircularStd-Medium", helvetica, sans-serif;
+ font-family:'Kaushan Script', cursive;
+
  }
 html {
   text-align:center;
 }
 body{
-  background: #F4F4F4;
+  background: #FAFAFA;
 }
 .card {
   background: #fff;
@@ -34,9 +35,11 @@ body{
 .auth-card {
   color: #292F3F;
   padding: 40px 60px;
+  border:1.5px solid #ccc;
 }
-.container-fluid{
-  text-align: left;
+.navbar{
+  border:1.5px solid #ccc;
+  text-align:left;
   background: #fff;
   border-radius: 20px;
   margin: 5px;
@@ -46,17 +49,28 @@ body{
 }
 .index-intro{
   display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px 0 40px 0;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0 40px 0;
 }
 .logo{
   margin: 20px;
 }
 .image-container{
-border-radius: 10px;
+  border-radius: 10px;
 }
 a.btn.btn-info{
-float: right;
-margin: 13px 3px 0;
+  float: right;
+  margin: 13px 3px 10px;
+}
+.content-detaile{
+  margin-bottom:10px;
+}
+.col-md-4 {
+  text-align: center;
+  background: #fff;
+  border-radius: 10px;
+  border:1.5px solid #ccc;
+  padding: 10px;
+  height: 320px;
 }

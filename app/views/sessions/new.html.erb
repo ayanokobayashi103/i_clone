@@ -1,11 +1,11 @@
 <h1>Log in</h1>
 <div class = "container">
   <div class = "card auth-card">
-<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
-  <%= f.label :email %>
-  <p><%= f.email_field :email %></p>
-  <%= f.label :password %>
-  <p><%= f.password_field :password %></p>
-  <%= f.submit "Log in" %>
-<% end %>
-</div></div>
+    <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+    <%= f.label :email %>
+    <p><%= f.email_field :email %></p>
+    <%= f.label :password %>
+    <p><%= f.password_field :password %></p>
+    <%= f.submit "Log in" %>
+    <% end %>
+  </div></div>

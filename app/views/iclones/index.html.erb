@@ -1,23 +1,24 @@
 <div class="index-intro">
   <h1>INDEX</h1>
 </div>
-  <%= link_to '新規作成', new_iclone_path %>
-
-
-<% @iclones.each do |iclone| %>
-<div class="container-fluid">
-<div class ="image-container">
-  <%= image_tag iclone.image.url %>
+<%= link_to '新規投稿', new_iclone_path %>
+<div class="feature-area">
+  <div class="container">
+    <div class="row">
+      <% @iclones.each do |iclone| %>
+      <div class="col-sm-6 col-md-4">
+        <%= image_tag iclone.image.url %><br>
+        <%= iclone.user.name %>
+        <%= iclone.content %><br>
+        <% if logged_in? %>
+        <%= link_to '詳細', iclone_path(iclone.id),class: "btn btn-default" %>
+        <% if iclone.user.id == current_user.id %>
+        <%= link_to "編集", edit_iclone_path(iclone.id),class: "btn btn-default" %>
+        <%= link_to '削除', iclone_path(iclone.id), method: :delete, data: { confirm: '本当に削除していいですか？' },class: "btn btn-default" %>
+        <% end %>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
-  <%= iclone.user.name %>
-  <%= iclone.content %>
-
-  <% if logged_in? %>
-  <%= link_to '詳細を確認する', iclone_path(iclone.id) %>
-  <% if iclone.user.id == current_user.id %>
-  <%= link_to "ブログを編集する", edit_iclone_path(iclone.id) %>
-  <%= link_to 'ブログを削除する', iclone_path(iclone.id), method: :delete, data: { confirm: '本当に削除していいですか？' }  %>
-  <% end %>
-  <% end %>
-</div>
-<% end %>

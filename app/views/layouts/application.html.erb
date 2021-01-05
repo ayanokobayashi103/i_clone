@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>TaskIg</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>TaskIg</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <meta name="viewport" content="width=device-width">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#gnavi">
-            <span class="sr-only">Bootstrap</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <div class="logo"><%= link_to "INDEX", iclones_path%></div>
-        </div>
-        <div id="gnavi" class="collapse navbar-collapse">
-          <% if logged_in? %>
-          <%= link_to "Profile", user_path(current_user.id), class: 'btn btn-info' %>
-          <%= link_to "Logout", session_path(current_user.id), method: :delete,class: 'btn btn-info' %>
-          <% else %>
-          <%= link_to "Sign up", new_user_path,class: 'btn btn-info' %>
-          <%= link_to "Login", new_session_path,class: 'btn btn-info' %>
-          <% end %>
-        </div>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#gnavi">
+          <span class="sr-only">Bootstrap</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="logo"><%= link_to "INDEX", iclones_path%></div>
       </div>
-    </nav>
-    <% flash.each do |key, value| %>
-    <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-    <%= yield %>
-  </body>
+      <div id="gnavi" class="collapse navbar-collapse">
+        <% if logged_in? %>
+        <%= link_to "Profile", user_path(current_user.id), class: 'btn btn-info' %>
+        <%= link_to "Logout", session_path(current_user.id), method: :delete,class: 'btn btn-info' %>
+        <% else %>
+        <%= link_to "Sign up", new_user_path,class: 'btn btn-info' %>
+        <%= link_to "Login", new_session_path,class: 'btn btn-info' %>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+  <% flash.each do |key, value| %>
+  <%= content_tag(:div, value, class: "#{key}") %>
+  <% end %>
+  <%= yield %>
+</body>
 </html>
