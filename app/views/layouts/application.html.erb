@@ -32,6 +32,9 @@
       </div>
     </div>
   </nav>
+<% if logged_in? %>
+   <%= "#{current_user.name}のページ" %>
+     <% end %>
   <% flash.each do |key, value| %>
   <%= content_tag(:div, value, class: "#{key}") %>
   <% end %>

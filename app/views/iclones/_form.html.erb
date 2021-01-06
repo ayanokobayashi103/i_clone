@@ -1,3 +1,4 @@
+<% if iclone.user.id == current_user.id %>
 <div class = "container">
   <div class = "card auth-card">
     <%= form_with(model: @iclone, local: true, url: choose_new_or_edit ) do |form| %>
@@ -25,3 +26,4 @@
   </div>
 </div>
 <%= link_to '一覧へ', iclones_path %>
+<% end %>

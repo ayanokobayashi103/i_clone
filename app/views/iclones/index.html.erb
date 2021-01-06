@@ -8,7 +8,7 @@
       <% @iclones.each do |iclone| %>
       <div class="col-sm-6 col-md-4">
         <%= image_tag iclone.image.url %><br>
-        <%= iclone.user.name %>
+        <%= iclone.user.name %><br>
         <%= iclone.content %><br>
         <% if logged_in? %>
         <%= link_to '詳細', iclone_path(iclone.id),class: "btn btn-default" %>

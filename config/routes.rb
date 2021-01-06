@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'iclones#index'
   resources :favorites
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
@@ -8,5 +9,4 @@ Rails.application.routes.draw do
     end
   end
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
-  root 'iclones#index'
 end
