@@ -19,6 +19,7 @@ gem 'mini_magick'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '3.1.11'
+gem 'letter_opener_web'
 
 group :development, :test do
   gem 'pry-rails'
@@ -29,7 +30,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'letter_opener_web'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'

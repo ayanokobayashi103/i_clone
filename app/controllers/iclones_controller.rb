@@ -7,6 +7,7 @@ class IclonesController < ApplicationController
   def new
     @iclone = Iclone.new
   end
+
   def create
     @iclone = current_user.iclones.build(iclone_params)
     if params[:back]
@@ -20,6 +21,7 @@ class IclonesController < ApplicationController
       end
     end
   end
+  
   def show
     @favorite = current_user.favorites.find_by(iclone_id: @iclone.id)
   end
