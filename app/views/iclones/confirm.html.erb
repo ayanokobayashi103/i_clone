@@ -1,12 +1,9 @@
 <h3>以下の内容で、投稿する。</h3>
-<%= form_with(model: @iclone, local: true) do |form| %>
+<%= form_with(model: @iclone, url: iclones_path, local: true) do |form| %>
 <%= form.hidden_field :content %>
 <p>本文:<%= @iclone.content %></p>
 <%= image_tag(@iclone.image.url) if @iclone.image && @iclone.image.url %>
-<%= form.hidden_field :image_cache %>
-<%= form.submit  "登録する" %>
-<% end %>
-<%= form_with(model:@iclone, url:new_iclone_path, local:true, method:"get") do |form| %>
-<%= form.hidden_field :image_cache %>
+<%= form.hidden_field :image_cache %><br>
+<%= form.submit  "登録する" %><br></br>
 <%= form.submit "戻る", name: 'back' %>
 <% end %>
