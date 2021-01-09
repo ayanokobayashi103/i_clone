@@ -22,10 +22,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-unless logged_in?
-  redirect_to new_session_path, notice:"ログイン必須"
-
-end
+    unless logged_in?
+      redirect_to new_session_path, notice:"ログイン必須"
+    end
   end
 
   def update

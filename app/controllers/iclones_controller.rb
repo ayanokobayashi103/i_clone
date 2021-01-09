@@ -1,5 +1,5 @@
 class IclonesController < ApplicationController
-  before_action :authenticate_user,only: [:edit, :show, :update, :destroy, :new]
+  before_action :authenticate_user, only: [:edit, :show, :update, :destroy, :new]
   before_action :set_iclone, only: [:edit, :show, :update, :destroy]
 
   def index
@@ -11,7 +11,8 @@ class IclonesController < ApplicationController
   end
 
   def create
-    @iclone = current_user.iclones.build(iclone_params)
+    @iclone = Iclone.new(iclone_params)
+    @iclone.user_id = current_user.id
     if params[:back]
       render :new
     else
