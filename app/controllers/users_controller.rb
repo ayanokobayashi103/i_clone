@@ -25,11 +25,12 @@ class UsersController < ApplicationController
     unless logged_in?
       redirect_to new_session_path, notice:"ログイン必須"
     end
+
   end
 
   def update
-    if @user.update(user_params)
-      redirect_to user_path, notice:"プロフィール更新"
+    if @user.update(edit_user_params)
+      redirect_to user_path, notice:"プロフィール更新したよ☆"
     else
       render :edit
     end
@@ -41,7 +42,12 @@ class UsersController < ApplicationController
       :password_confirmation, :image, :image_cache)
     end
 
+    def edit_user_params
+      params.require(:user).permit(:name, :email, :image, :image_cache)
+    end
+
     def set_user
       @user = User.find(params[:id])
     end
+
   end
