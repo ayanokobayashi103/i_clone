@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :show, :update]
+  before_action :same_user_id, only: [:edit, :update]
+  
   def index
     @users = User.all
   end
@@ -18,14 +20,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @favorite_iclones = @user.favorite_iclones
+      @favorite_iclones = @user.favorite_iclones
   end
 
   def edit
     unless logged_in?
       redirect_to new_session_path, notice:"ログイン必須"
     end
-
   end
 
   def update
@@ -48,6 +49,12 @@ class UsersController < ApplicationController
 
     def set_user
       @user = User.find(params[:id])
+    end
+
+    def same_user_id
+      unless current_user.id == @user.id
+        redirect_to user_path, notice:"エラー"
+      end
     end
 
   end
